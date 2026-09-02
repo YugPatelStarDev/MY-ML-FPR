@@ -224,6 +224,247 @@
   position: relative;
 }
 
+    /* ================================= */
+/*       YUG AUTOGRAPH / SIGNATURE    */
+/* ================================= */
+
+.yug-signature {
+  position: relative;
+  display: inline-block;
+  margin: 45px auto 25px;
+  text-align: center;
+  transform: rotate(-6deg);
+}
+
+/* Main autograph */
+.yug-main {
+  position: relative;
+
+  font-family: "Brush Script MT",
+               "Segoe Script",
+               "Lucida Handwriting",
+               cursive;
+
+  font-size: clamp(7rem, 19vw, 13rem);
+
+  font-weight: 900;
+
+  font-style: italic;
+
+  letter-spacing: -12px;
+
+  line-height: .65;
+
+  color: #fff;
+
+  /* GTA-inspired pink / cyan glow */
+  text-shadow:
+    3px 3px 0 #ff1493,
+    6px 6px 0 rgba(255, 20, 147, .4),
+
+    -3px -2px 0 #00eaff,
+
+    0 0 8px #fff,
+    0 0 18px #ff1493,
+    0 0 35px #ff1493,
+    0 0 70px rgba(255, 20, 147, .6);
+
+  animation: autographFloat 4s ease-in-out infinite;
+}
+
+
+/* Handwritten underline */
+.yug-underline {
+  position: absolute;
+
+  width: 125%;
+
+  height: 14px;
+
+  left: -10%;
+
+  bottom: -20px;
+
+  border-bottom:
+    5px solid #ff1493;
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-3deg)
+    skewX(-20deg);
+
+  box-shadow:
+    0 0 8px #ff1493,
+    0 0 20px #ff1493,
+    0 0 40px rgba(255, 20, 147, .5);
+}
+
+
+/* Little PATEL text */
+.yug-small {
+  position: absolute;
+
+  right: -45px;
+  bottom: -48px;
+
+  font-family: monospace;
+
+  font-size: .8rem;
+
+  font-weight: bold;
+
+  letter-spacing: 8px;
+
+  color: #00eaff;
+
+  text-shadow:
+    0 0 7px #00eaff,
+    0 0 18px #00eaff;
+
+  transform: rotate(3deg);
+}
+
+
+/* Floating autograph */
+@keyframes autographFloat {
+
+  0%, 100% {
+    transform:
+      rotate(-6deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      rotate(-5deg)
+      translateY(-7px);
+  }
+}
+
+
+/* Subtle shine */
+.yug-main::after {
+  content: "YUG";
+
+  position: absolute;
+
+  inset: 0;
+
+  color: transparent;
+
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,.9) 45%,
+    transparent 55%
+  );
+
+  background-size: 250%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: signatureShine 5s infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes signatureShine {
+
+  0%, 55% {
+    background-position: 200%;
+  }
+
+  75%, 100% {
+    background-position: -100%;
+  }
+
+}
+
+
+/* Decorative stars */
+.yug-signature::before {
+  content: "✦";
+
+  position: absolute;
+
+  left: -55px;
+  top: 5px;
+
+  font-size: 2rem;
+
+  color: #00eaff;
+
+  text-shadow:
+    0 0 10px #00eaff,
+    0 0 25px #00eaff;
+
+  animation: starPulse 2s infinite;
+}
+
+
+.yug-signature::after {
+  content: "✦";
+
+  position: absolute;
+
+  right: -65px;
+  bottom: 20px;
+
+  font-size: 1.5rem;
+
+  color: #ff1493;
+
+  text-shadow:
+    0 0 10px #ff1493,
+    0 0 25px #ff1493;
+
+  animation: starPulse 2s infinite reverse;
+}
+
+
+@keyframes starPulse {
+
+  0%, 100% {
+    opacity: .4;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .yug-main {
+    font-size: 6rem;
+    letter-spacing: -8px;
+  }
+
+  .yug-small {
+    right: -20px;
+    bottom: -42px;
+    font-size: .65rem;
+  }
+
+  .yug-signature::before {
+    left: -25px;
+  }
+
+  .yug-signature::after {
+    right: -30px;
+  }
+
+}
+
+
 /* CRAZY YUG */
 .crazy-yug {
   position: relative;
@@ -462,9 +703,20 @@
 
     <footer>
 
-  <div class="crazy-yug">
-    <span>YUG</span>
-  </div>
+  <div class="yug-signature">
+  <div class="yug-main">YUG</div>
+  <div class="yug-underline"></div>
+  <div class="yug-small">PATEL</div>
+</div>
+
+<div class="github-link">
+  <a href="https://github.com/YugPatelStarDev"
+     target="_blank"
+     rel="noopener noreferrer">
+    ◉ github.com/YugPatelStarDev
+  </a>
+</div>
+
 
   <p class="footer-tagline">
     ⚡ BUILT DIFFERENT • DREAM BIG • CREATE MORE ⚡
