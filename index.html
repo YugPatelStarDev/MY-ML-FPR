@@ -218,12 +218,168 @@
     }
 
     footer {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 60px;
-      padding-bottom: 30px;
-      font-size: .85rem;
-    }
+  text-align: center;
+  margin-top: 90px;
+  padding: 40px 20px 35px;
+  position: relative;
+}
+
+/* CRAZY YUG */
+.crazy-yug {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.crazy-yug span {
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 1000;
+  font-style: italic;
+  letter-spacing: -12px;
+
+  background: linear-gradient(
+    90deg,
+    #00f5ff,
+    #ffffff,
+    #9b5cff,
+    #ff3cac,
+    #00f5ff
+  );
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation:
+    yugGradient 4s linear infinite,
+    yugFloat 3s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 10px #00f5ff)
+    drop-shadow(0 0 30px #9b5cff)
+    drop-shadow(0 0 60px #ff3cac);
+}
+
+@keyframes yugGradient {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 300%;
+  }
+}
+
+@keyframes yugFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+/* Neon line underneath */
+.crazy-yug::after {
+  content: "";
+  position: absolute;
+
+  width: 130%;
+  height: 4px;
+
+  left: -15%;
+  bottom: -5px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00f5ff,
+    #ff3cac,
+    #9b5cff,
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px #00f5ff,
+    0 0 25px #ff3cac;
+
+  animation: linePulse 2s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% {
+    opacity: .5;
+    transform: scaleX(.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.footer-tagline {
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: 3px;
+}
+
+/* GitHub */
+.github-link {
+  margin-top: 25px;
+}
+
+.github-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  padding: 12px 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 50px;
+
+  background: rgba(255,255,255,.04);
+
+  backdrop-filter: blur(10px);
+
+  transition: .3s;
+
+  font-family: monospace;
+  font-size: .9rem;
+}
+
+.github-link a:hover {
+  color: #00f5ff;
+
+  border-color: #00f5ff;
+
+  box-shadow:
+    0 0 15px rgba(0,245,255,.3),
+    0 0 40px rgba(155,92,255,.15);
+
+  transform: translateY(-3px);
+}
+
+.github-icon {
+  color: #00f5ff;
+  font-size: 1.2rem;
+}
+
+.copyright {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: .7rem;
+  letter-spacing: 1px;
+}
+
 
     @media (max-width: 750px) {
       .grid {
@@ -305,8 +461,30 @@
     </div>
 
     <footer>
-      Built with ❤️ using HTML + CSS + JavaScript
-    </footer>
+
+  <div class="crazy-yug">
+    <span>YUG</span>
+  </div>
+
+  <p class="footer-tagline">
+    ⚡ BUILT DIFFERENT • DREAM BIG • CREATE MORE ⚡
+  </p>
+
+  <div class="github-link">
+    <a href="https://github.com/YugPatelStarDev"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span class="github-icon">◉</span>
+      github.com/YugPatelStarDev
+    </a>
+  </div>
+
+  <p class="copyright">
+    © 2026 YUG • Made with HTML + CSS + JavaScript
+  </p>
+
+</footer>
+
 
   </div>
 
