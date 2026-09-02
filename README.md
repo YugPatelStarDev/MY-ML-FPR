@@ -52,9 +52,7 @@ The interface is built around a futuristic command-center aesthetic:
 
           LOCAL SYSTEM TIME
 
-🚀 Getting Started
-1. Clone the repository
-git clone https://github.com/YOUR-USERNAME/MY-ML-FPR.git
+
 
 2. Enter the project
 cd MY-ML-FPR
