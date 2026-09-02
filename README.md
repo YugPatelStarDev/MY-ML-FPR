@@ -1,8 +1,24 @@
+<div align="center">
+
+# ⚡ MY-ML-FPR
+
+### 🌌 Neon Nexus — Futuristic Interactive Web Experience
+
+<a href="https://yugstardevneonnexus.netlify.app/" target="_blank">
+  <img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-FF1493?style=for-the-badge&logo=netlify&logoColor=white">
+</a>
+
+<br><br>
+
+<a href="https://github.com/YugPatelStarDev/MY-ML-FPR">
+  <img src="https://img.shields.io/badge/GitHub-YugPatelStarDev-00F5FF?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</div>
 
 
 
 
-Writing
 <div align="center">
 ⚡ MY-ML-FPR
 🌌 A Futuristic Interactive Web Experience
