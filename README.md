@@ -8,7 +8,26 @@ Writing
 🌌 A Futuristic Interactive Web Experience
 <img src="https://capsule-render.vercel.app/api?type=waving&color=00F5FF&height=180&section=header&text=MY-ML-FPR&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=35" width="100%"/> <br> <a href="#"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> </a> <a href="#"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> </a> <a href="#"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> </a> <a href="#"> <img src="https://img.shields.io/badge/Single--File-00F5FF?style=for-the-badge"> </a>
 
-<br><br>
+<br>
+
+<div align="center">
+
+# ⚡ YugPatelStarDev
+
+### 💻 Developer • Builder • Open Source Enthusiast
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00F5FF&height=180&section=header&text=YugPatelStarDev&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=35" width="100%"/>
+
+<br>
+
+<img src="https://img.shields.io/badge/Code-Create-00F5FF?style=for-the-badge">
+<img src="https://img.shields.io/badge/Build-Innovate-9B5CFF?style=for-the-badge">
+<img src="https://img.shields.io/badge/Open%20Source-❤️-FF3CAC?style=for-the-badge">
+
+</div>
+
+
+<br>
 
 <p> <strong>HTML</strong> • <strong>CSS</strong> • <strong>JavaScript</strong> </p> <p> A tiny project with a futuristic interface, animated particles, glowing gradients, glassmorphism and interactive JavaScript. </p> </div>
 <div align="center">
