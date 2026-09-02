@@ -10,21 +10,6 @@ Writing
 
 <br>
 
-<div align="center">
-
-# ⚡ YugPatelStarDev
-
-### 💻 Developer • Builder • Open Source Enthusiast
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=00F5FF&height=180&section=header&text=YugPatelStarDev&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=35" width="100%"/>
-
-<br>
-
-<img src="https://img.shields.io/badge/Code-Create-00F5FF?style=for-the-badge">
-<img src="https://img.shields.io/badge/Build-Innovate-9B5CFF?style=for-the-badge">
-<img src="https://img.shields.io/badge/Open%20Source-❤️-FF3CAC?style=for-the-badge">
-
-</div>
 
 
 <br>
@@ -421,8 +406,28 @@ MY-ML-FPR
 
 <br>
 
+
+
 <strong>Made with ❤️ and a little bit of ✨ chaos.</strong>
 
 <br><br>
 
 <img src="https://img.shields.io/badge/STATUS-ONLINE-00FF88?style=for-the-badge"> <img src="https://img.shields.io/badge/ENERGY-100%25-FF3CAC?style=for-the-badge"> <img src="https://img.shields.io/badge/FUTURE-LOADING-9B5CFF?style=for-the-badge"> </div>
+
+
+<div align="center">
+
+# ⚡ YugPatelStarDev
+
+### 💻 Developer • Builder • Open Source Enthusiast
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00F5FF&height=180&section=header&text=YugPatelStarDev&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=35" width="100%"/>
+
+<br>
+
+<img src="https://img.shields.io/badge/Code-Create-00F5FF?style=for-the-badge">
+<img src="https://img.shields.io/badge/Build-Innovate-9B5CFF?style=for-the-badge">
+<img src="https://img.shields.io/badge/Open%20Source-❤️-FF3CAC?style=for-the-badge">
+
+</div>
+
