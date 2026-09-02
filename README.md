@@ -1,6 +1,6 @@
-Absolutely — if you want the README itself to look insanely cool on GitHub, we can use lots of GitHub-supported HTML alongside Markdown: centered sections, tables, <details>, badges, animated GIF/image slots, custom layouts, and <kbd> elements.
 
-Here’s a much more visually rich version for MY-ML-FPR:
+
+
 
 Writing
 <div align="center">
