@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Nexus</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #9298b5;
+      --cyan: #00f5ff;
+      --purple: #9b5cff;
+      --pink: #ff3cac;
+    }
+
+    body.light {
+      --bg: #eef2ff;
+      --card: rgba(255, 255, 255, 0.65);
+      --border: rgba(0, 0, 0, 0.1);
+      --text: #111827;
+      --muted: #596174;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 245, 255, .12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(155, 92, 255, .15), transparent 30%),
+        var(--bg);
+      transition: .4s;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .55;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 35px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--cyan);
+      text-shadow: 0 0 20px var(--cyan);
+    }
+
+    button {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: .25s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 245, 255, .2);
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(0, 245, 255, .3);
+      background: rgba(0, 245, 255, .08);
+      color: var(--cyan);
+      border-radius: 50px;
+      font-size: .8rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: .95;
+      letter-spacing: -5px;
+      margin-bottom: 25px;
+      background: linear-gradient(
+        90deg,
+        var(--cyan),
+        #fff,
+        var(--purple),
+        var(--pink)
+      );
+      background-size: 300%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: gradient 6s linear infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .actions {
+      margin: 30px 0 70px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #050816;
+      border: none;
+      font-weight: bold;
+      padding: 13px 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 22px;
+      backdrop-filter: blur(18px);
+      transition: .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: var(--cyan);
+      filter: blur(70px);
+      opacity: .15;
+      top: -40px;
+      right: -40px;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0, 245, 255, .35);
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .9rem;
+    }
+
+    .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-top: 15px;
+      color: var(--cyan);
+    }
+
+    .clock {
+      margin: 50px auto 0;
+      text-align: center;
+      font-family: monospace;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 60px;
+      padding-bottom: 30px;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 750px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        margin-bottom: 45px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">NEXUS_01</div>
+      <button id="themeBtn">☀️ Theme</button>
+    </nav>
+
+    <section class="hero">
+
+      <span class="badge">⚡ SYSTEM ONLINE</span>
+
+      <h1>BUILD<br>THE FUTURE.</h1>
+
+      <p>
+        A tiny futuristic dashboard built with nothing but
+        HTML, CSS and JavaScript — all inside a single file.
+      </p>
+
+      <div class="actions">
+        <button class="primary" id="launchBtn">
+          🚀 Launch System
+        </button>
+
+        <button id="randomBtn">
+          ✨ Randomize
+        </button>
+      </div>
+
+    </section>
+
+    <section class="grid">
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Performance</h3>
+        <p>Lightweight interface with zero external libraries.</p>
+        <div class="number" data-target="98">0%</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>Intelligence</h3>
+        <p>Interactive JavaScript powers the entire experience.</p>
+        <div class="number" data-target="87">0%</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Connectivity</h3>
+        <p>Designed to feel like a futuristic command center.</p>
+        <div class="number" data-target="100">0%</div>
+      </div>
+
+    </section>
+
+    <div class="clock" id="clock">
+      Loading system time...
+    </div>
+
+    <footer>
+      Built with ❤️ using HTML + CSS + JavaScript
+    </footer>
+
+  </div>
+
+  <script>
+    // =========================
+    // THEME SWITCHER
+    // =========================
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+
+      themeBtn.textContent =
+        document.body.classList.contains("light")
+          ? "🌙 Dark"
+          : "☀️ Theme";
+    });
+
+
+    // =========================
+    // LIVE CLOCK
+    // =========================
+
+    function updateClock() {
+      const now = new Date();
+
+      const time = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+
+      document.getElementById("clock").textContent =
+        "LOCAL SYSTEM TIME  •  " + time;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+
+    // =========================
+    // COUNTER ANIMATION
+    // =========================
+
+    const numbers = document.querySelectorAll(".number");
+
+    numbers.forEach(number => {
+
+      const target = Number(number.dataset.target);
+      let current = 0;
+
+      const interval = setInterval(() => {
+
+        current++;
+
+        number.textContent = current + "%";
+
+        if (current >= target) {
+          clearInterval(interval);
+        }
+
+      }, 18);
+
+    });
+
+
+    // =========================
+    // LAUNCH BUTTON
+    // =========================
+
+    document.getElementById("launchBtn").addEventListener("click", () => {
+
+      const messages = [
+        "🚀 System launched!",
+        "⚡ Engines are online!",
+        "🧠 AI core initialized!",
+        "🌌 Welcome to the future!"
+      ];
+
+      const message =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      alert(message);
+
+    });
+
+
+    // =========================
+    // RANDOM COLOR MODE
+    // =========================
+
+    document.getElementById("randomBtn").addEventListener("click", () => {
+
+      const colors = [
+        "#00f5ff",
+        "#ff3cac",
+        "#9b5cff",
+        "#00ff88",
+        "#ffb800"
+      ];
+
+      const color =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      document.documentElement.style.setProperty("--cyan", color);
+
+    });
+
+
+    // =========================
+    // PARTICLE BACKGROUND
+    // =========================
+
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+
+        this.size = Math.random() * 2 + 1;
+
+        this.speedX =
+          (Math.random() - 0.5) * 0.5;
+
+        this.speedY =
+          (Math.random() - 0.5) * 0.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width)
+          this.speedX *= -1;
+
+        if (this.y < 0 || this.y > canvas.height)
+          this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fillStyle = "#00f5ff";
+        ctx.fill();
+      }
+    }
+
+
+    function createParticles() {
+
+      particles = [];
+
+      const count =
+        Math.min(120, Math.floor(window.innerWidth / 10));
+
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    createParticles();
+
+
+    function animate() {
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+  </script>
+
+</body>
+</html>
